@@ -188,6 +188,19 @@ void sendKeys ( int pressedArray [] [NCOLS], int previousArray [] [NCOLS] ) {
 							
 						}
 
+					// If CTRL key is pressed, use the CTRL mapping in keyScancodeCtrl
+					} else if (pressedArray[5][8] > 0) {
+
+						if ( !( (row == 5) && (col == 8) ) ) {
+
+							Keyboard.press(KEY_CTRL);
+							Keyboard.press(keyScancodeCtrl[row][col]);
+
+							Keyboard.release(keyScancodeCtrl[row][col]);
+							Keyboard.release(KEY_CTRL);
+							
+						}
+
 
 
 					// No modifiers, so just send keys via the default mapping in keyScancode
